@@ -24,9 +24,14 @@ document.addEventListener("DOMContentLoaded", () => {
       grid.appendChild(square);
       squares.push(square);
 
-      square.addEventListener('click', function() {
+      square.addEventListener('click', function(e) {
         click(square);
-      })
+      });
+
+      square.oncontextmenu = function(e) {
+        e.preventDefault();
+        addFlag(square);
+      }
     }
 
     for (let i = 0; i < squares.length; i++) {
@@ -77,7 +82,16 @@ document.addEventListener("DOMContentLoaded", () => {
   function addFlag(square) {
     if (isGameOver) return
     if (!square.classList.contains('checked') && (flags < bombAmount)) {
-
+      if (!square.classList.contains('flag')) {
+        square.classList.add("flag");
+        square.innerHTML = "flag";
+        flags++; 
+        checkForWin();
+      } else {
+        square.classList.remove("flag");
+        square.innerHTML = '';
+        flags--; 
+      }
     }
   }
 
@@ -175,6 +189,19 @@ document.addEventListener("DOMContentLoaded", () => {
         square.innerHTML = "bomb";
       }
     });
+  }
+
+  function checkForWin() {
+    let matches = 0;
+    for (let i = 0; i < squares.length; i++) {
+      if (squares[i].classList.contains('flag') && squares[i].classList.contains('bomb')) {
+        matches ++;
+      }
+      if (matches === bombAmount) {
+        console.log("YOU WIN!");
+      }
+    }
+    
   }
 
 
