@@ -102,6 +102,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const newSquare = document.getElementById(newId);
         click(newSquare);
       }
+
+      //check top square
+      if (currentId > 10) {
+        const newId = squares[parseInt(currentId) - width].id;
+        const newSquare = document.getElementById(newId);
+        click(newSquare);
+      }
+
+      //check top-left square
+      if (currentId > 11 && !isLeftEdge) {
+        const newId = squares[parseInt(currentId) - width - 1].id;
+        const newSquare = document.getElementById(newId);
+        click(newSquare);
+      }
     }, 10);
 
   }
