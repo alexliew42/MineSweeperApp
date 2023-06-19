@@ -104,6 +104,13 @@ document.addEventListener("DOMContentLoaded", () => {
         click(newSquare);
       }
 
+      //check top-right square
+      if (currentId > 9 && !isRightEdge) {
+        const newId = squares[parseInt(currentId) - width + 1].id;
+        const newSquare = document.getElementById(newId);
+        click(newSquare);
+      }
+
       //check top square
       if (currentId > 10) {
         const newId = squares[parseInt(currentId) - width].id;
@@ -128,6 +135,20 @@ document.addEventListener("DOMContentLoaded", () => {
       //check bottom left square
       if (currentId < 90 && !isLeftEdge) {
         const newId = squares[parseInt(currentId) - 1 + width].id;
+        const newSquare = document.getElementById(newId);
+        click(newSquare);
+      }
+
+      //check bottom right square
+      if (currentId < 88 && !isRightEdge) {
+        const newId = squares[parseInt(currentId) + width + 1].id;
+        const newSquare = document.getElementById(newId);
+        click(newSquare);
+      }
+
+      //check bottom square
+      if (currentId < 89) {
+        const newId = squares[parseInt(currentId) + width].id;
         const newSquare = document.getElementById(newId);
         click(newSquare);
       }
