@@ -1,22 +1,39 @@
 .grid {
-  height: 400px;
-  width: 400px;
+  height: 340px;
+  width: 340px;
   display: flex;
   flex-wrap: wrap;
-  background-color: grey;
+  background-color: #BEBEBE;
 }
 
 .grid div {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   text-align: center;
-  line-height: 40px;
+  line-height: 30px;
+  border: 2px outset #DABC94;
 }
 
-/* .grid div:nth-child(2n) {
-  background-color: green;
-} */
+body {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 
 .checked {
   background-color: #DABC94;
+}
+
+.one {
+  color: rgb(27, 155, 198);
+}
+
+.two {
+  color: rgb(32, 191, 32);
+}
+
+.three {
+  color: rgb(206, 34, 206);
+}
+
+.four {
+  color: red;
 }
